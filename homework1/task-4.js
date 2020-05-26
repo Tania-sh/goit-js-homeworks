@@ -12,7 +12,7 @@ if (userChoise === null) {
   message = 'Отменено пользователем!';
 } else {
   totalPrice = Number(userChoise) * pricePerDroid;
-  if (totalPrice > 23580) {
+  if (totalPrice > userCredits) {
     message = 'Недостаточно средств на счету!';
   } else {
     creditBalance = userCredits - totalPrice;

@@ -1,40 +1,40 @@
 'use strict';
 
-const deliveryGoods = 'Оформить доставку товара ';
-const deliveryCountry = prompt(deliveryGoods);
-let credit = 0;
-let message;
-const titleInLC = deliveryCountry.toLowerCase();
 
-switch (titleInLC) {
+let country = prompt('Оформить доставку товара');
+let credit = 0;
+if (country !==null) {
+  country = country.toLowerCase();
+}
+
+switch (country) {
   case 'китай':
     credit = '100';
-    message = `Доставка в ${titleInLC} будет стоить ${credit} кредитов.`;
     break;
 
   case 'чили':
     credit = '250';
-    message = `Доставка в ${titleInLC} будет стоить ${credit} кредитов.`;
     break;
 
   case 'австралия':
     credit = '170';
-    message = `Доставка в ${titleInLC} будет стоить ${credit} кредитов.`;
     break;
 
   case 'индия':
     credit = '80';
-    message = `Доставка в ${titleInLC} будет стоить ${credit} кредитов.`;
     break;
 
   case 'ямайка':
     credit = '120';
-    message = `Доставка в ${titleInLC} будет стоить ${credit} кредитов.`;
     break;
 
   default:
-    message = 'В вашей стране доставка не доступна';
-    alert(message);
+    credit = -1;
 }
 
-console.log(message);
+if (credit !==-1) {
+  country = country.charAt(0).toUpperCase() + country.slice(1);
+  alert (`Доставка в ${country} будет стоить ${credit} кредитов`);
+}else {
+  alert (`В вашей стране доставка не доступна`);
+}
